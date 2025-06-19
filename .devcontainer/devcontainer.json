@@ -1,0 +1,35 @@
+// for format details, see https://aka.ms/vscode-remote/devcontainer.json
+{
+	"name": "Miniconda-Jupyter-Scala",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {
+			"USER": "vscode"
+		}
+	},
+  "features": {
+
+  },
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      "settings": {},
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-toolsai.vscode-jupyter-cell-tags",
+        "scala-lang.scala",
+        "scalameta.metals",
+        "scala-lang.scala-snippets",
+        "vscode-icons-team.vscode-icons"
+        ]
+    }
+  },
+  "postCreateCommand": "python --version",
+	"remoteUser": "vscode"
+}
