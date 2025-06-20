@@ -1,21 +1,22 @@
 // for format details, see https://aka.ms/vscode-remote/devcontainer.json
 {
-	"name": "Miniconda-Jupyter-Scala",
+	"name": "Jupyter-SpinalHDL",
 	"build": {
-		"dockerfile": "Dockerfile",
-		"context": "..",
-		"args": {
-			"USER": "vscode"
-		}
+		"dockerfile": "./Dockerfile",
+    "context": "."
 	},
   "features": {
-
   },
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
-      "settings": {},
-      // Add the IDs of extensions you want installed when the container is created.
+      "settings": {
+        "jupyter.kernels.trusted": [
+          "/home/vscode/.local/share/jupyter/kernels/scala"
+        ],
+        "jupyter.logKernelOutputSeparately": true
+      },
+      // Add the IDs of extensions you want installed
       "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
@@ -23,13 +24,12 @@
         "ms-toolsai.jupyter-keymap",
         "ms-toolsai.jupyter-renderers",
         "ms-toolsai.vscode-jupyter-cell-tags",
+        "sam-the-programmer.jupyter-theme",
         "scala-lang.scala",
         "scalameta.metals",
-        "scala-lang.scala-snippets",
-        "vscode-icons-team.vscode-icons"
-        ]
+        "scala-lang.scala-snippets"
+      ]
     }
   },
-  "postCreateCommand": "python --version",
 	"remoteUser": "vscode"
 }
