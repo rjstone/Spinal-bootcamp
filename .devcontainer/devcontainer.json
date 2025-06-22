@@ -21,9 +21,10 @@
     "vscode": {
       "settings": {
         "jupyter.kernels.trusted": [
-          "/usr/share/jupyter/kernels/scala"
+          "/usr/share/jupyter/kernels"
         ],
-        "jupyter.logKernelOutputSeparately": true
+        "jupyter.logKernelOutputSeparately": true,
+        "interactiveScala.interpreter": "/usr/local/bin/ammonite"
       },
       // Add the IDs of extensions you want installed
       "extensions": [
@@ -36,7 +37,8 @@
         "sam-the-programmer.jupyter-theme",
         "scala-lang.scala",
         "scalameta.metals",
-        "scala-lang.scala-snippets"
+        "scala-lang.scala-snippets",
+        "alssys.interactive-scala"
       ]
     }
   },

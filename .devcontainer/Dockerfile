@@ -34,12 +34,9 @@ RUN if [ "$VARIANT" = "noble" ]; then \
 
 # Performm basic OS configuration for interactive use
 ARG LANG
-ARG HOSTNAME
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=apt-cache \
   --mount=type=cache,target=/var/lib/apt,sharing=locked,id=apt-lib \
   <<EOF
-echo $HOSTNAME > /etc/hostname
-hostname $HOSTNAME
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get install -y --no-install-recommends \
@@ -90,11 +87,14 @@ apt-get -y dist-clean
 EOF
 
 # Add the default non-root user
+ARG HOSTNAME
 ARG USERNAME
 ARG USER_UID
 ARG USER_GID
 ARG USER_GECOS
 RUN <<EOF
+echo $HOSTNAME > /etc/hostname
+hostname $HOSTNAME
 groupadd --gid $USER_GID $USERNAME
 useradd -s /bin/bash --uid $USER_UID --gid $USER_GID --comment "$USER_GECOS" -m $USERNAME
 echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME
@@ -111,4 +111,4 @@ COPY load-spinal.sc .
 LABEL description="Development container for Scala + SpinalHDL + Jupyter" \
       author="rjstoneus@gmail.com" \
       maintainer="rjstoneus@gmail.com" \
-      version="0.3.0"
+      version="0.3.1"
