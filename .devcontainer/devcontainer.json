@@ -1,9 +1,18 @@
 // for format details, see https://aka.ms/vscode-remote/devcontainer.json
 {
-	"name": "Jupyter-SpinalHDL",
+	"name": "SpinalHDL-Jupyter",
+  "containerEnv": {
+    "JAVA_JDK_VERSION": "17",
+    "ALMOND_VERSION": "0.14.1",
+    "SCALA_VERSION": "2.13.1"
+  },
 	"build": {
 		"dockerfile": "./Dockerfile",
-    "context": "."
+    "context": ".",
+    "args": {
+      "LANG": "en_US.UTF-8",
+      "HOSTNAME": "SpinalHDL-container"
+    }
 	},
   "features": {
   },
@@ -12,7 +21,7 @@
     "vscode": {
       "settings": {
         "jupyter.kernels.trusted": [
-          "/home/vscode/.local/share/jupyter/kernels/scala"
+          "/usr/share/jupyter/kernels/scala"
         ],
         "jupyter.logKernelOutputSeparately": true
       },
@@ -31,5 +40,6 @@
       ]
     }
   },
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+  "postCreateCommand": "$COURSIER_INSTALL_DIR/ammonite $HOME/load-spinal.sc"
 }
