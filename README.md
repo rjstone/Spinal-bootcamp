@@ -1,3 +1,23 @@
+Notes on this repo/fork/branch:
+
+* This contains a 'devcontainer' (Development Container) that installs the necessary software and vscode extensions to open the Jupyter Notebook files with an Almond Scala kernel. It also installs vscode extensions for Scala and Jupyter.
+
+* The devcontainer is part of a larger project to create a container with most free HDL tools, but this isn't done yet. (Verilator is not present yet etc.)
+
+* This container is using newer versions of Java, Scala, and Almond than were originally used. The versions are:
+  * Java: Temurin JDK v17 (most recent workable)
+  * Almond: 0.14.1 (latest)
+  * Scala: 2.13.1 (latest that works with Almond)
+  * SpinalHDL: 1.8.0 (most recent tagged)
+
+* The notebook files have been updates to import load-spinal.sc using `os.Path()`
+
+By far the easiest way to use the jupyter notebook files is to use the 'binder' using the online 'launch binder' link.
+
+**Notes on loading the devcontainer:** The devcontainer starts with almost everthing except for the vscode extensions, but these can take a while to load. So it may take 1-2 minutes until they are all working.
+
+
+---
 # Spinal-bootcamp [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jijingg/Spinal-bootcamp/binder)
 
 This is SpinalHDL Tutorial, More important, it's a spinalHDL run-time environment.
@@ -15,9 +35,9 @@ In addition, we also introduced some advanced usage of Scala, which are very hel
 
 There are two ways, you can run online or locally
 
-### Online 
+### Online
 
-click [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jijingg/Spinal-bootcamp/binder) and start 
+click [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jijingg/Spinal-bootcamp/binder) and start
 
 ### Local
 
@@ -26,13 +46,13 @@ $: git clone https://github.com/jijingg/Spinal-bootcamp
 $: cd Spinal-bootcamp
 $: jupyter notebook &
 ```
- 
-## Setup Jupyter-notebook enviroment 
 
-if you want run locally, install follows first 
+## Setup Jupyter-notebook enviroment
+
+if you want run locally, install follows first
 - [jupyter-notebook](https://jupyter.org/install)(Strongly recommend installing Python and Jupyter using the [Anaconda](https://www.anaconda.com/distribution/))
 - scala(Scala2.12 is recommended)
-- [almond](https://almond.sh/)(scala kernel for jupyter) 
+- [almond](https://almond.sh/)(scala kernel for jupyter)
 
 ### Setup on Windows10 and higher
 
@@ -67,8 +87,8 @@ OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
 
 ## Before the start
 
-  We assume you already have the basics knowledge of Scala，So there is no introduction to scala syntax here.  
-If you need to learn Scala, I would strongly recommend the book of **["Programming in Scala"](https://www.oreilly.com/library/view/programming-in-scala/9780981531687/)** by Martin Odersky who is also the author of Scala. And just 
+  We assume you already have the basics knowledge of Scala，So there is no introduction to scala syntax here.
+If you need to learn Scala, I would strongly recommend the book of **["Programming in Scala"](https://www.oreilly.com/library/view/programming-in-scala/9780981531687/)** by Martin Odersky who is also the author of Scala. And just
 try them as many as you can on jupyter notebook env, This may be more efficient to help you master Scala than just reading a book without practice.
 
 ## FAQ
